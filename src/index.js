@@ -27,7 +27,7 @@ app.use("/", (req, res)=>{
 
 
 sequelize.sync().then((result) => {
-    app.listen(5000,  ()=>{
+    app.listen(process.env.PORT || '5000',  ()=>{
         console.log("You are on port 5000");
     });
 }).catch(err => {
