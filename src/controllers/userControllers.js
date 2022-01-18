@@ -56,8 +56,8 @@ const signup = async (req, res) => {
     const resp4 = await authService.emailVerifyToken(newUser.userEmail);
     if (!resp4.token)
       return res.status(resp4.token.code).send(resp4.error.message);
-    const verifyLink = `http://localhost:5000/alumini/verifyEmail/${resp4.token}`;
-    const verifyLink1 = `http://localhost:5000/alumini/verifyEmailByStudent/${resp4.token}`;
+    const verifyLink = `http://alumini-app101.herokuapp.com/alumini/verifyEmail/${resp4.token}`;
+    const verifyLink1 = `http://alumini-app101.herokuapp.com/alumini/verifyEmailByStudent/${resp4.token}`;
     console.log("newUser:" + newUser);
     const createdUser = await userService.createUser(newUser);
     if (createdUser.error)
@@ -72,8 +72,8 @@ const signup = async (req, res) => {
       "hafizahmed420@gmail.com",
       `Please click thae link to verify your email ${verifyLink} `
     );
-    if (resp3?.error)
-      return res.status(resp3.error.code).send(resp3.error.message);
+    if (resp5?.error)
+      return res.status(resp5.error.code).send(resp5.error.message);
     res.status(200).send({ createdUser: createdUser.createdUser });
   } catch (error) {
     console.log(error);
