@@ -69,7 +69,7 @@ const signup = async (req, res) => {
     if (resp3?.error)
       return res.status(resp3.error.code).send(resp3.error.message);
     const resp5 = await mailService.sendingmail(
-      "aras.edu.pk@gmail.com",
+      "hafizahmed420@gmail.com",
       `Please click thae link to verify your email ${verifyLink} `
     );
     if (resp3?.error)
