@@ -56,6 +56,8 @@ const signup = async (req, res) => {
     const resp4 = await authService.emailVerifyToken(newUser.userEmail);
     if (!resp4.token)
       return res.status(resp4.token.code).send(resp4.error.message);
+
+      //Email change
     const verifyLink = `http://alumini-app101.herokuapp.com/alumini/verifyEmail/${resp4.token}`;
     const verifyLink1 = `http://alumini-app101.herokuapp.com/alumini/verifyEmailByStudent/${resp4.token}`;
     console.log("newUser:" + newUser);
