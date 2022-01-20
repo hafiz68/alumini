@@ -192,8 +192,8 @@ const resendVerifyMail = async (req, res) => {
     const resp4 = await authService.emailVerifyToken(newUser.userEmail);
     if (!resp4.token)
       return res.status(resp4.token.code).send(resp4.error.message);
-    const verifyLink = `http://localhost:5000/alumini/verifyEmail/${resp4.token}`;
-    const verifyLink1 = `http://localhost:5000/alumini/verifyEmailByStudent/${resp4.token}`;
+    const verifyLink = `http://alumini-app101.herokuapp.com/alumini/verifyEmail/${resp4.token}`;
+    const verifyLink1 = `http://alumini-app101.herokuapp.com/alumini/verifyEmailByStudent/${resp4.token}`;
     console.log("newUser:" + newUser);
     const resp3 = await mailService.sendingmail(
       userEmail,
@@ -203,7 +203,7 @@ const resendVerifyMail = async (req, res) => {
     if (resp3?.error)
       return res.status(resp3.error.code).send(resp3.error.message);
     const resp5 = await mailService.sendingmail(
-      "aras.edu.pk@gmail.com",
+      "hafizahmed420@gmail.com",
       `Please click thae link to verify your email 
       ${verifyLink} `
     );
